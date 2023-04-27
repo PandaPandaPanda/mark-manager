@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/navigation"
+            app:startDestination="@id/mainFragment">
+
+    <fragment
+            android:id="@+id/mainFragment"
+            android:name="com.example.markmanagement.MainFragment"
+            android:label="fragment_main"
+            tools:layout="@layout/fragment_main">
+        <action
+                android:id="@+id/action_mainFrag_to_addFrag"
+                app:destination="@id/otherFragment"/>
+        <action
+                android:id="@+id/action_mainFragment_to_editFragment"
+                app:destination="@id/editFragment"/>
+    </fragment>
+    <fragment
+            android:id="@+id/otherFragment"
+            android:name="com.example.markmanagement.AddFragment"
+            android:label="fragment_other"
+            tools:layout="@layout/fragment_add">
+        <action
+                android:id="@+id/action_otherFrag_to_mainFrag"
+                app:destination="@id/mainFragment"/>
+        <!--        <argument-->
+        <!--                android:name="message"-->
+        <!--                app:argType="string"/>-->
+    </fragment>
+    <fragment android:id="@+id/editFragment" android:name="com.example.markmanagement.EditFragment"
+              android:label="EditFragment">
+        <argument
+                android:name="code"
+                app:argType="string"/>
+        <argument
+                android:name="description"
+                app:argType="string"/>
+        <argument
+                android:name="mark"
+                app:argType="string"/>
+        <argument
+                android:name="term"
+                app:argType="string"/>
+        <action android:id="@+id/action_editFragment_to_mainFragment" app:destination="@id/mainFragment"/>
+    </fragment>
+</navigation>
